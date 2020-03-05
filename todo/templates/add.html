@@ -1,35 +1,67 @@
 <!DOCTYPE html>
 <html>
+
 <head></head>
+
 <body>
   <form action="add/" method="post">
     {% csrf_token %}
-    <!-- <label class="required" for="id_project">Project:</label>
-    <select name="project" required="" id="id_project">
-      <option value="" selected="">---------</option>
-      {%for pro in Objs%}
-      <option value="{{pro.id}}">{{pro.name}}</option>
-      {%endfor%}
-    </select>
-    <label class="required" for="id_kind">Kind:</label>
-    <select name="kind" required="" id="id_kind">
-      <option value="" selected="">---------</option>
-      {%for bed in Bed%}
-      <option value="{{bed.id}}">{{bed.id}}</option>
-      {%endfor%} -->
-      <!-- <option value="other">Бусад</option> -->
-    <!-- </select>
-    <label class="required" for="id_current">Current:</label>
-    <input type="number" name="current" class="vIntegerField" min="0" required="" id="id_current">
-    <label class="required" for="id_increment">Increment:</label>
-    <input type="number" name="increment" class="vIntegerField" min="0" required="" id="id_increment">
-    <label class="required" for="id_decrement">Decrement:</label>
-    <input type="number" name="decrement" class="vIntegerField" min="0" required="" id="id_decrement">
-    <label class="required" for="id_final">Final:</label>
-    <input type="number" name="final" class="vIntegerField" min="0" required="" id="id_final">
-    <input type="submit" value="Save" class="default" name="_save"> -->
-    {{form}}
-    <input type="submit" value="submit" />
+    <div>
+      <div>
+        <label class="required" for="id_kind">Орны төрөл (байнгын болон яаралтай тусламж, үйлчилгээний)</label>
+      </div>
+      <div>
+        {{form}}
+      </div>
+    </div>
+    <div>
+      <div>
+        <label class="required" for="id_current">Одоогийн тусгай зөвшөөрөлтэй ор</label>
+      </div>
+      <div>
+        <input type="number" name="current" class="vIntegerField" min="0" required="" id="id_current">
+      </div>
+    </div>
+    <div>
+      <div>
+        <label class="required" for="id_increment">Шинээр санал болгож буй ор</label>
+      </div>
+      <div>
+        <input type="number" name="increment" class="vIntegerField" min="0" required="" id="id_increment">
+      </div>
+    </div>
+    <div>
+      <div>
+        <label class="required" for="id_decrement">Санал болгож буй орны бууралт</label>
+      </div>
+      <div>
+        <input type="number" name="decrement" class="vIntegerField" min="0" required="" id="id_decrement">
+      </div>
+    </div>
+    <div>
+      <div>
+        <label class="required" for="id_final">Төсөл дууссаны дараах нийт ор</label>
+      </div>
+      <div>
+        <input type="number" name="final" class="vIntegerField" min="0" required="" id="id_final">
+      </div>
+    </div>
+    <div style="padding: 20px;">
+      <div style="margin-top: 100%;">
+        <input type="submit" value="submit" />
+      </div>
+    </div>
   </form>
 </body>
+<style>
+  input{
+  }
+  div {
+    border-color: 1px solid black;
+    height: 100px;
+    max-width: 200px;
+    float: left;
+  }
+</style>
+
 </html>

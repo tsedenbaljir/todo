@@ -6,6 +6,7 @@ from .forms import NameForm
 # 
 def home(request):
     form = NameForm()
+    print(form)
     return render(request, 'add.html', {'form':form})
 # 
 def add(request): 
