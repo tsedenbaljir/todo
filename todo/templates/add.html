@@ -4,46 +4,47 @@
 <head></head>
 
 <body>
-  <form action="add/" method="post">
-    {% csrf_token %}
+  <form action="add/" method="post" novalidate>
+    {% csrf_token %} 
     <div>
       <div id="label">
-        <label class="required" for="id_kind">Орны төрөл (байнгын болон яаралтай тусламж, үйлчилгээний)</label>
+        {{form.kind.label}}
       </div>
       <div id="input">
-        {{form}}
+        {{form.kind}}
+        {{ form.name.error_messages }} 
       </div>
     </div>
     <div>
       <div id="label">
-        <label class="required" for="id_current">Одоогийн тусгай зөвшөөрөлтэй ор</label>
+        {{form.current.label}}
       </div>
       <div id="input">
-        <input type="number" name="current" class="vIntegerField" min="0" required="" id="id_current">
+        {{form.current}}
       </div>
     </div>
     <div>
       <div id="label">
-        <label class="required" for="id_increment">Шинээр санал болгож буй ор</label>
+        {{form.increment.label}}
       </div>
       <div id="input">
-        <input type="number" name="increment" class="vIntegerField" min="0" required="" id="id_increment">
+        {{form.increment}}
       </div>
     </div>
     <div>
       <div id="label">
-        <label class="required" for="id_decrement">Санал болгож буй орны бууралт</label>
+        {{form.decrement.label}}
       </div>
       <div id="input">
-        <input type="number" name="decrement" class="vIntegerField" min="0" required="" id="id_decrement">
+        {{form.decrement}}
       </div>
     </div>
     <div>
       <div id="label">
-        <label class="required" for="id_final">Төсөл дууссаны дараах нийт ор</label>
+        {{form.final.label}}
       </div>
       <div id="input">
-        <input type="number" name="final" class="vIntegerField" min="0" required="" id="id_final">
+        {{form.final}}
       </div>
     </div>
     <div style="padding: 20px;">
@@ -54,17 +55,19 @@
   </form>
 </body>
 <style>
-  div { 
+  div {
     padding: 5px;
     max-width: 200px;
     float: left;
   }
-  #input{
+
+  #input {
     border: 1px solid black;
     width: 100%;
-    
+
   }
-  #label{
+
+  #label {
     height: 100px;
     border: 1px solid black;
     width: 100%;

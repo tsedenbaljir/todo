@@ -1,26 +1,17 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,HttpResponse
 from .models import Bed
 from .forms import NameForm
 
 # 
-def home(request):
-    form = NameForm()
-    print(form)
-    return render(request, 'add.html', {'form':form})
-# 
 def add(request): 
-    # Орны төрөл (байнгын болон яаралтай тусламж, үйлчилгээний)
-    kind = request.POST['kind']
-    # Одоогийн тусгай зөвшөөрөлтэй ор
-    current = request.POST['current']
-    # Шинээр санал болгож буй ор
-    increment = request.POST['increment']
-    # Санал болгож буй орны бууралт
-    decrement = request.POST['decrement']
-    # Төсөл дууссаны дараах нийт ор
-    final = request.POST['final']
-    add=Bed(kind = kind, current = current, increment = increment,
-    decrement = decrement, final = final)
-    add.save()
-    return redirect('/')
+    if request.method == 'POST':
+        if request.POST['kind'] == '' or request.POST['current'] == '' or request.POST['increment'] == '' or request.POST['decrement'] == '' or request.POST['final'] == '':
+            return HttpResponse('Та бүх талбарыг үнэн зөв гүйцэт бөглөнө үү !!!.  <a href="/">Дахин нэмэх</a>')
+        add=NameForm(request.POST)
+        if add.is_valid():
+            add.save()
+            return HttpResponse('Амжиллтай хадгалгадлаа. <a href="/">Дахин нэмэх</a>')
+    else:
+        form = NameForm()
+    return render(request, 'add.html', {'form':form})
