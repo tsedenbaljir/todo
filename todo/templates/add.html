@@ -7,42 +7,42 @@
   <form action="add/" method="post">
     {% csrf_token %}
     <div>
-      <div>
+      <div id="label">
         <label class="required" for="id_kind">Орны төрөл (байнгын болон яаралтай тусламж, үйлчилгээний)</label>
       </div>
-      <div>
+      <div id="input">
         {{form}}
       </div>
     </div>
     <div>
-      <div>
+      <div id="label">
         <label class="required" for="id_current">Одоогийн тусгай зөвшөөрөлтэй ор</label>
       </div>
-      <div>
+      <div id="input">
         <input type="number" name="current" class="vIntegerField" min="0" required="" id="id_current">
       </div>
     </div>
     <div>
-      <div>
+      <div id="label">
         <label class="required" for="id_increment">Шинээр санал болгож буй ор</label>
       </div>
-      <div>
+      <div id="input">
         <input type="number" name="increment" class="vIntegerField" min="0" required="" id="id_increment">
       </div>
     </div>
     <div>
-      <div>
+      <div id="label">
         <label class="required" for="id_decrement">Санал болгож буй орны бууралт</label>
       </div>
-      <div>
+      <div id="input">
         <input type="number" name="decrement" class="vIntegerField" min="0" required="" id="id_decrement">
       </div>
     </div>
     <div>
-      <div>
+      <div id="label">
         <label class="required" for="id_final">Төсөл дууссаны дараах нийт ор</label>
       </div>
-      <div>
+      <div id="input">
         <input type="number" name="final" class="vIntegerField" min="0" required="" id="id_final">
       </div>
     </div>
@@ -56,11 +56,20 @@
 <style>
   input{
   }
-  div {
-    border-color: 1px solid black;
-    height: 100px;
+  div { 
+    padding: 5px;
     max-width: 200px;
     float: left;
+  }
+  #input{
+    border: 1px solid black;
+    width: 100%;
+    
+  }
+  #label{
+    height: 100px;
+    border: 1px solid black;
+    width: 100%;
   }
 </style>
 
