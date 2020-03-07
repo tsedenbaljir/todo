@@ -5,20 +5,20 @@
 
 <body>
   {%if saved %}
-  <strong>
+  <p class="saved">
     {{saved}}
-  </strong>
+  </p>
   {%endif%}
-  <form action="/" method="post" novalidate>
-    {% csrf_token %} 
+  <form method="post" novalidate>
+    {% csrf_token %}
     <div>
       <div id="label">
         {{form.kind.label}}
       </div>
       <div id="input">
         {{form.kind}}
+        {{form.kind.errors}}
       </div>
-        {{kinderr}}
     </div>
     <div>
       <div id="label">
@@ -26,8 +26,8 @@
       </div>
       <div id="input">
         {{form.current}}
+        {{form.current.errors}}
       </div>
-        {{currenterr}}
     </div>
     <div>
       <div id="label">
@@ -35,17 +35,17 @@
       </div>
       <div id="input">
         {{form.increment}}
+        {{form.increment.errors}}
       </div>
-        {{incrementerr}}
     </div>
     <div>
-      <div id="label"> 
+      <div id="label">
         {{form.decrement.label}}
       </div>
       <div id="input">
         {{form.decrement}}
+        {{form.decrement.errors}}
       </div>
-      {{decrementerr}}
     </div>
     <div>
       <div id="label">
@@ -53,8 +53,8 @@
       </div>
       <div id="input">
         {{form.final}}
+        {{form.final.errors}}
       </div>
-      {{finalerr}}
     </div>
     <div style="padding: 20px;">
       <div style="margin-top: 100%;">
@@ -80,6 +80,13 @@
     height: 100px;
     border: 1px solid black;
     width: 100%;
+  }
+
+  .saved {
+    background:green;
+    width: 250px;
+    padding: 12px;
+    border-radius: 7px;
   }
 </style>
 
