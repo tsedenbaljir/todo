@@ -16,8 +16,6 @@ class NameForm(forms.ModelForm):
         
         for key, field in self.fields.items():
             print(field.widget)
-            if isinstance(field.widget, forms.Select):
-                field.widget.attrs.update({'placeholder': "songolt xiine vv"})
             if isinstance(field.widget, forms.NumberInput):
                 field.widget.attrs.update({'placeholder': "Зөвхөн тоо "})
         
